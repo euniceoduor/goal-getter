@@ -1,0 +1,620 @@
+/* =========================================
+   GLOBAL THEME COLORS
+   ========================================= */
+:root {
+  --sunshine: #ffb703;        /* warm yellow-orange */
+  --sunset: #fb8500;          /* deeper orange */
+  --sunshine-light: #ffe8b0;  /* pale warm yellow */
+  --olive: #6a7f3f;           /* olive green */
+  --olive-dark: #4f5e2f;      /* deeper olive */
+  --mint: #e8f5d2;            /* soft green */
+  --card-bg: #fffdf5;         /* warm off-white */
+  --text-dark: #2e2e2e;
+  --text-light: #ffffff;
+  --radius: 12px;
+  --shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.goals-container {
+  width: 100%;
+  max-width: 550px;      /* ⭐ your preferred card width */
+  margin: 0 auto;        /* ⭐ centers everything */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items:stretch;
+}
+
+/* =========================================
+   PAGE BASE
+   ========================================= */
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, var(--sunshine-light), var(--mint));
+  margin: 0;
+  padding: 30px;
+  color: var(--text-dark);
+}
+
+/* =========================================
+   HEADERS
+   ========================================= */
+h1 {
+  text-align: center;
+  color: var(--sunset);
+  font-size: 2.6rem;
+  margin-bottom: 0;
+}
+
+h4 {
+  text-align: center;
+  color: var(--olive-dark);
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+/* =========================================
+   FORM CONTAINER
+   ========================================= */
+form {
+  background: var(--card-bg);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 550px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-left: 6px solid var(--sunshine);
+}
+
+/* =========================================
+   LABELS + INPUTS
+   ========================================= */
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--olive-dark);
+}
+
+input,
+select {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: var(--radius);
+  border: 2px solid var(--olive);
+  background: #ffffff;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--sunset);
+  box-shadow: 0 0 6px rgba(251,133,0,0.4);
+}
+
+/* =========================================
+   SUBMIT BUTTON
+   ========================================= */
+button[type="submit"] {
+  background: var(--sunset);
+  color: var(--text-light);
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover {
+  background: var(--sunshine);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   GOAL CARD
+   ========================================= */
+.goal-card {
+  background: var(--card-bg);
+  padding: 14px 18px;
+  margin: 20px auto;
+
+  width: 100%;
+  max-width: 550px;
+  min-width: 100%;        /* ⭐ same rule that fixed quote box */
+  box-sizing: border-box;
+
+  display: block;         /* ⭐ block-level element */
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-left: 6px solid var(--olive);
+  transition: 0.25s ease;
+}
+
+
+
+.goal-card:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--sunset);
+}
+
+/* =========================================
+   GOAL CARD HEADER + DELETE BUTTON
+   ========================================= */
+.goal-card h4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--olive-dark);
+  margin-bottom: 10px;
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  width:100%;
+}
+
+.goal-card button {
+  background: var(--sunset);
+  color: var(--text-light);
+  border: none;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s ease;
+}
+
+.goal-card .delete-goal-btn {
+  margin-top: 10px;
+  margin-left:10px;
+  padding: 6px 12px;
+  background: var(--sunset);
+  color: var(--text-light);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.goal-card button:hover {
+  background: var(--sunshine);
+}
+
+.goal-card .delete-goal-btn:hover {
+  background: var(--olive);
+}
+
+
+/* =========================================
+   GOAL CARD TEXT
+   ========================================= */
+.goal-card p {
+  margin: 6px 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.form-container{
+  max-width: 550px;
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box;
+
+  display: block;     /* ⭐ THIS FIXES THE SHRINKING */
+}
+
+.goal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  font-size: 0.9rem;
+}
+
+.goal-details div {
+  padding: 2px 0;
+}
+.goal-highlight {
+  margin-top: 6px;
+  padding: 6px 10px;
+  background: var(--mint);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.add-goal-btn {
+  background: var(--sunset);          /* deep orange */
+  color: var(--text-light);
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto 20px auto;           /* centered above form */
+  box-shadow: var(--shadow);
+  transition: 0.25s ease;
+}
+
+.add-goal-btn:hover {
+  background: var(--sunshine);        /* bright yellow-orange */
+  transform: translateY(-2px);
+}
+
+.add-goal-btn:active {
+  transform: scale(0.97);
+}
+
+.progress-bar {
+  width: 100%;
+  background: #f7f4e3; /* soft sunshine cream */
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  height: 32px;              /* ⭐ bigger so text fits */
+  display: flex;
+  align-items: center;       /* ⭐ vertically centers text */
+}
+
+/* Financing bar (olive green) */
+.progress-fill {
+  height: 100%;
+  background: var(--olive, #556b2f);
+  color: #fffef8;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;       /* ⭐ centers text vertically */
+  transition: width 0.4s ease;
+  white-space: nowrap;       /* ⭐ prevents text from wrapping */
+}
+
+/* Steps bar (sunshine orange) */
+.progress-fill.steps {
+  background: var(--sunshine, #f4b400);
+  color: #4a3f00;            /* dark warm text for contrast */
+}
+
+
+
+/* 1. Add Steps button — bigger text, better padding */
+.add-steps-btn {
+  margin-top: 10px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  background: var(--olive);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-light); 
+}
+
+/* 2. Steps section container */
+.steps-section {
+  margin-top: 12px;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+/* Step input row */
+.step-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Step input */
+.step-input-row input {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 0.9rem;
+}
+
+/* Tick button ✓ */
+.tick-btn {
+  background: var(--olive);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* 3. Steps list — smaller font + left aligned */
+.steps-list {
+  margin-top: 10px;
+  padding-left: 20px;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* 4. Done button — styled properly */
+.close-steps-btn {
+  margin-top: 12px;
+  padding: 6px 12px;
+  background: #ddd;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.goal-card .edit-goal-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background: var(--olive);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* 🌿 Finance Section Container */
+.finance-section {
+  background: #fff9e6; /* soft sunshine cream */
+  border-left: 4px solid var(--olive, #556b2f);
+  padding: 18px;
+  border-radius: 10px;
+  margin-top: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* 🌿 Section Title */
+.finance-title {
+  color: var(--olive, #556b2f);
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+}
+
+/* 🌿 Row Layout */
+.finance-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+/* 🌿 Labels */
+.finance-row label {
+  width: 40%;
+  font-weight: 600;
+  color: var(--olive, #556b2f);
+}
+
+/* 🌿 Inputs + Selects (same width, same style) */
+.finance-row input,
+.finance-row select {
+  width: 100%; /* ensures equal width */
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--olive, #556b2f);
+  background: #ffffff;
+  color: #333;
+  box-sizing: border-box;
+  height: 42px; /* consistent height for all */
+}
+
+/* 🌞 Focus Glow */
+.finance-row input:focus,
+.finance-row select:focus {
+  outline: none;
+  border-color: var(--sunshine, #f4b400);
+  box-shadow: 0 0 5px rgba(244, 180, 0, 0.6);
+}
+
+/* 🌿 Toggle Button (Financing your goal / Hide financing) */
+.add-steps-btn {
+  background: #6a7f3a;  
+  color: #fff;
+  padding: 10px 14px;      /* same size as before */
+  font-size: 1rem;         /* ⭐ slightly larger text */
+  font-weight: 400;        /* ⭐ lighter weight = more readable */
+  letter-spacing: 0.4px;   /* ⭐ improves clarity */
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.add-steps-btn:hover {
+  background: #6b8240; /* lighter olive hover */
+}
+
+.goal-stats-wrapper {
+  background: #fffdf4; /* soft sunshine cream */
+  border-left: 4px solid var(--olive, #556b2f);
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* spacing between lines */
+}
+
+.goal-stat-line {
+  color: var(--olive, #556b2f);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Wrapper for the steps list */
+.goal-steps {
+  background: #ffffff;                 /* clean white */
+  border-left: 4px solid #f4b400;      /* sunshine orange */
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+/* Each step row */
+.goal-step-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;                           /* space between checkbox + text */
+  padding: 6px 0;
+  border-bottom: 1px solid #ffe9a8;    /* soft sunshine divider */
+}
+
+/* Remove last divider */
+.goal-step-item:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox styling */
+.goal-step-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #f4b400;               /* sunshine orange checkbox */
+  cursor: default;
+}
+
+/* Step text */
+.goal-step-item span {
+  font-size: 0.95rem;
+  color: #5a4a00;                      /* warm dark text */
+  text-align: left;
+}
+
+/* Completed step styling */
+.step-done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+
+.goal-steps-title {
+  font-size: 1rem;      
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  text-align: left;
+  color: #4a3f00;
+           
+}
+
+.goal-title {
+  width: 100%;          /* ⭐ force full width */
+  flex: 0 0 100%;       /* ⭐ prevent shrinking */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.finance-summary {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 100%;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.finance-summary h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.finance-summary .summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.finance-summary .summary-row:last-child {
+  border-bottom: none;
+}
+
+.finance-summary .currency-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #444;
+}
+
+.finance-summary .currency-values {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.finance-summary .currency-values span {
+  display: block;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .finance-summary .summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .finance-summary .currency-values {
+    text-align: left;
+    margin-top: 0.4rem;
+  }
+}
+
+.finance-summary {
+  margin: 10px auto 0 auto;   /* smaller top margin, no bottom gap */
+}
+
+.form-container {
+  margin-top: 10px;           /* reduce spacing between summary + goals */
+}
+
+.quote-box {
+  background: var(--card-bg);
+  border-left: 4px solid var(--sunshine);
+  padding: 14px 18px;
+  margin: 0 auto 10px auto;
+
+  width: 100%;
+  max-width: 550px;
+  min-width: 100%;        /* ⭐ prevents shrinking */
+  box-sizing: border-box;
+
+  flex: 0 0 auto;         /* ⭐ prevents flexbox shrink */
+
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--olive-dark);
+  margin-bottom: 6px;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--sunset);
+}
