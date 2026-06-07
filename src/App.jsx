@@ -5,7 +5,8 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import Goal from './Goal.jsx'
 import GoalForm from './GoalForm.jsx'
-import { DemoGoal } from './DemoGoal.jsx'
+
+
 import { Quotes} from './Quotes.jsx'
 
 function App() {
@@ -14,21 +15,22 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
+  
+
   // ⭐ Load saved goals on first render
   useEffect(() => {
     const saved = localStorage.getItem("goalList");
-    if(!saved) {
-      setGoalList([DemoGoal]);
-    }
+    
     if (saved) {
       setGoalList(JSON.parse(saved));
-    }
+    } 
     setLoaded(true);
   }, []);
 
 // ⭐ Save goals whenever they change
   useEffect(() => {
     if (loaded) {
+  
       localStorage.setItem("goalList", JSON.stringify(goalList));
     }
     
@@ -36,6 +38,7 @@ function App() {
 
   const addGoal = (goal) => {
       setGoalList((prev) => {
+       
         const list = [goal,...prev];
         const sortedList = [...list].sort((a, b) =>
           new Date(a.targetDate).getTime() - new Date(b.targetDate).getTime()
@@ -45,10 +48,12 @@ function App() {
   };
 
   const removeGoal = (id) => {
+  
       setGoalList((goalList) => goalList.filter((goal) => goal.id !== id))
   };
 
   const updateGoal = (updatedGoal) => {
+   
       setGoalList((prev) => 
         prev.map((goal) => 
           goal.id === updatedGoal.id? updatedGoal: goal
@@ -96,10 +101,12 @@ function App() {
     <div className="goals-container">
       <h1>Goal-Getter</h1>
       <h4>Track your financial and non-financial goals.</h4>
+      
       <div className="quote-box">
         <p className="quote-text">“{randomQuote.quote}”</p>
         <p className="quote-author">— {randomQuote.author}</p>
       </div>
+      
       <button
         className="add-goal-btn"
         onClick={() => setShowForm(!showForm)}

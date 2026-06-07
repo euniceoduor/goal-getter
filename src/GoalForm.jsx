@@ -4,6 +4,8 @@ import './App.css';
 
 function GoalForm (props) {
 
+    
+
     const {goal, isEditing, onSubmit, onClose} = props;
     const [goalName, setGoalName] = useState('');
     const [startDate, setStartDate] = useState(

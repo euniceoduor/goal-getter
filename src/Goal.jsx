@@ -12,6 +12,7 @@ function Goal ({goal, removeGoal, updateGoal}) {
     const stepProgress = totalSteps> 0? (completedSteps/ totalSteps)*100: 0;
 
     const list = goal.steps;
+    
 
     return (
       <>
@@ -121,16 +122,20 @@ function Goal ({goal, removeGoal, updateGoal}) {
                 </>
               )}
                 
+         
+                <>
+                
+                <button 
+                  type="button" 
+                  className="edit-goal-btn"
+                  onClick={() => setIsEditing(true)}
+                >
+                  Edit
+                </button>
 
-              <button 
-                type="button" 
-                className="edit-goal-btn"
-                onClick={() => setIsEditing(true)}
-              >
-                Edit
-              </button>
-
-              <button className="delete-goal-btn" onClick={() => removeGoal(goal.id)}>Delete</button>
+                <button className="delete-goal-btn" onClick={() => removeGoal(goal.id)}>Delete</button>
+                </>
+              
             </>
           )}
         </div>
