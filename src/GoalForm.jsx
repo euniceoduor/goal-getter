@@ -103,7 +103,7 @@ function GoalForm (props) {
 
     const calcRegularSaving = ({timeLeft, targetAmount, savedAmount}) => {
         const amountLeft = targetAmount - savedAmount;
-        const months = timeLeft/30;
+        const months = timeLeft > 30? timeLeft/30 : 1;
         const saving = Math.floor((amountLeft/months),2);
         return saving;
     };
